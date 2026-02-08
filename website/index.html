@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Love Story 💖</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Great+Vibes&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+body{color:white;overflow-x:hidden;background:#0f0510;}
+
+/* Countdown */
+#countdownScreen{position:fixed;top:0;left:0;width:100%;height:100%;background:black;display:flex;flex-direction:column;justify-content:center;align-items:center;z-index:9999;}
+#countText{font-size:80px;font-family:'Great Vibes',cursive;}
+#loveMsg{font-size:70px;color:pink;margin-top:20px;display:none;font-family:'Dancing Script',cursive;animation:loveBeat 2s infinite;}
+
+@keyframes loveBeat{
+0%{transform:scale(1);} 
+50%{transform:scale(1.15);} 
+100%{transform:scale(1);} }
+
+/* Trailer */
+#trailer{position:fixed;top:0;left:0;width:100%;height:100%;background:#140414;display:none;flex-direction:column;justify-content:center;align-items:center;z-index:9000;text-align:center;}
+.trailerText{font-size:40px;font-family:'Great Vibes',cursive;margin:15px;animation:fadeIn 2s ease;}
+
+@keyframes fadeIn{from{opacity:0;transform:translateY(40px);}to{opacity:1;}}
+
+/* Background Video */
+#bgVideo{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);width:100%;height:100%;object-fit:cover;z-index:-2;}
+.overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:-1;}
+
+/* Floating Hearts */
+.heart{position:fixed;color:pink;font-size:20px;animation:floatUp 6s linear infinite;opacity:.8;}
+@keyframes floatUp{0%{transform:translateY(100vh) scale(.5);}100%{transform:translateY(-10vh) scale(1.2);opacity:0;}}
+
+/* Sparkles */
+.sparkle{position:fixed;width:4px;height:4px;background:white;border-radius:50%;animation:sparkle 4s linear infinite;}
+@keyframes sparkle{0%{transform:translateY(0);}100%{transform:translateY(-800px);opacity:0;}}
+
+.container{text-align:center;padding:80px 20px;}
+h1{font-family:'Great Vibes',cursive;font-size:60px;margin-bottom:20px;}
+.section{margin-top:70px;}
+
+/* Random Photo Style */
+.random-photo{position:relative;margin:40px auto;width:260px;cursor:pointer;}
+.random-photo img{width:100%;border-radius:20px;box-shadow:0 0 25px rgba(255,105,180,.6);} 
+.quote{margin-top:10px;font-family:'Dancing Script';font-size:24px;color:#ffd1e8;}
+
+/* Popup */
+#photoPopup{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.9);display:none;justify-content:center;align-items:center;flex-direction:column;z-index:99999;text-align:center;padding:20px;}
+
+/* Timeline Cinematic */
+.timeline{max-width:700px;margin:50px auto;text-align:left;}
+.timeline-item{margin:30px 0;padding:20px;border-left:4px solid pink;background:rgba(255,255,255,.08);border-radius:12px;opacity:0;transform:translateY(40px);transition:all 1s;}
+.timeline-item.show{opacity:1;transform:translateY(0);}
+
+/* Love Roadmap */
+.roadmap{max-width:700px;margin:auto;text-align:left;}
+.road-item{margin:25px 0;padding:15px;border-left:3px solid #ff69b4;background:rgba(255,255,255,.05);border-radius:10px;}
+
+button{padding:12px 25px;border:none;border-radius:25px;background:#ff4da6;color:white;font-size:16px;cursor:pointer;margin-top:20px;}
+
+</style>
+</head>
+
+<body>
+
+<div id="countdownScreen">
+<div id="countText">5</div>
+<div id="loveMsg">happy propose day bava 💖</div>
+
+</div>
+
+<div id="trailer">
+<div class="trailerText">In a world full of people...</div>
+<div class="trailerText">Two hearts found each other 💖</div>
+<div class="trailerText">This is Our Love Story...</div>
+</div>
+
+<video autoplay muted loop id="bgVideo">
+<source src="videos/VN20251207_134224.mp4" type="video/mp4">
+</video>
+<div class="overlay"></div>
+
+<div class="container" id="mainContent" style="display:none;">
+<h1>Our Love Story 💖</h1>
+<h2>navya💖hemanth</h2>
+
+<div class="section">
+<h2>Our Beautiful Memories </h2>
+
+<div class="random-photo" onclick="showPopup('You are my forever and always 💖')">
+<img src="images/photo1.jpg">
+<div class="quote">"With you, every moment is magic"</div>
+</div>
+
+<div class="random-photo" onclick="showPopup('You are my home 🏡❤️')">
+<img src="images/photo2.jpg">
+<div class="quote">"You are my today and all my tomorrows"</div>
+</div>
+
+<div class="random-photo" onclick="showPopup('I fall for you every single day 💕')">
+<img src="images/photo3.jpg">
+<div class="quote">"You are my destiny"</div>
+</div>
+<div class="random-photo" onclick="showPopup('You’re the greatest gift I’ve ever gotten 🎁')">
+<img src="images/photo4.jpg">
+<div class="quote">"I love you more than words can express"</div>
+</div>
+<div class="random-photo" onclick="showPopup('You’re my greatest adventure💕')">
+<img src="images/photo5.jpg">
+<div class="quote">"If I know what love is, it is because of you."</div>
+</div>
+<div class="random-photo" onclick="showPopup('I never want to stop making memories with you 💕')">
+<img src="images/photo6.jpg">
+<div class="quote">"I will love you until the end of time"</div>
+</div>
+<div class="random-photo" onclick="showPopup('You are the love of my life, and the light of my love 💕')">
+<img src="images/photo7.jpg">
+<div class="quote">"I love you more every second"</div>
+</div>
+<div class="random-photo" onclick="showPopup('Time is the currency of life, I love spending it with you 💕')">
+<img src="images/photo8.jpg">
+<div class="quote">"I love you, forever and always"</div>
+</div>
+</div>
+
+<div class="section">
+<h2>Our Love Roadmap 🗺</h2>
+<div class="roadmap">
+<div class="road-item">🌸 First Talk — <b> sorry bava gurtuledu ninnu eppudu chusano ...but i always love you</b></div>
+<div class="road-item">💑 First Meet — <b>sorry bava idi kuda gurtuledu .....but i'll always be with you</b></div>
+<div class="road-item">💖 Love proposal -16-03-2024</b></div>
+<div class="road-item">💋 First Kiss — <b>04-04-2024</b></div>
+<div class="road-item">🤗 First Hug — <b>05-04-2024</b></div>
+
+<div class="road-item">💍 Proposal — <b>13-10-2025</b></div>
+</div>
+</div>
+
+<div class="section">
+<h2>Our Journey Timeline 🎬</h2>
+<div class="timeline">
+<div class="timeline-item">We started as strangers...</div>
+<div class="timeline-item">Then became best friends...</div>
+<div class="timeline-item">Then became soulmates...</div>
+</div>
+</div>
+
+</div>
+
+<div id="photoPopup">
+<h2 id="popupText"></h2>
+<button onclick="closePopup()">Close ❤️</button>
+</div>
+
+<script>
+
+/* Countdown */
+startCountdown();
+function startCountdown(){
+let count=5;
+let t=document.getElementById('countText');
+let love=document.getElementById('loveMsg');
+let timer=setInterval(()=>{
+count--; t.innerText=count;
+if(count==0){
+clearInterval(timer);
+t.style.display='none';
+love.style.display='block';
+setTimeout(()=>{
+document.getElementById('countdownScreen').style.display='none';
+document.getElementById('trailer').style.display='flex';
+setTimeout(()=>{
+document.getElementById('trailer').style.display='none';
+document.getElementById('mainContent').style.display='block';
+},5000);
+},2500);
+}
+},1000);
+}
+
+/* Floating Hearts */
+setInterval(()=>{
+let h=document.createElement('div');
+h.className='heart';
+h.innerHTML='💖';
+h.style.left=Math.random()*100+'%';
+document.body.appendChild(h);
+setTimeout(()=>h.remove(),6000);
+},500);
+
+/* Sparkles */
+for(let i=0;i<50;i++){
+let s=document.createElement('div');
+s.className='sparkle';
+s.style.left=Math.random()*100+'%';
+s.style.top=Math.random()*100+'%';
+document.body.appendChild(s);
+}
+
+/* Popup */
+function showPopup(text){
+document.getElementById('popupText').innerText=text;
+document.getElementById('photoPopup').style.display='flex';
+}
+function closePopup(){document.getElementById('photoPopup').style.display='none';}
+
+/* Cinematic Scroll */
+let items=document.querySelectorAll('.timeline-item');
+window.addEventListener('scroll',()=>{
+items.forEach(el=>{
+let pos=el.getBoundingClientRect().top;
+if(pos<window.innerHeight-100){el.classList.add('show');}
+});
+});
+
+</script>
+
+</body>
+</html>
